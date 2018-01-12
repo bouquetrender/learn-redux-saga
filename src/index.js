@@ -14,10 +14,11 @@ store.runSaga(rootSaga)
 
 const action = type => store.dispatch({type})
 function render () {
-  const { num, url, msg } = store.getState()
+  const { num, url, msg, error } = store.getState()
   ReactDOM.render(
     <div>
       <Url
+        error={error}
         url={url}
         onFillurl={() => action('FILLURL_ASYNC')}
       />
